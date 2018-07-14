@@ -17,6 +17,7 @@ class PyCallgraphProvider(CallgraphProviderBase):
         self._config = Config()
         self._config.trace_filter = GlobbingFilter(exclude=[
             'pycallgraph.*'
+            'excallgraph.*'
         ])
         if self._configuration.excludes is not None:
             self._config.trace_filter.exclude += self._configuration.excludes
@@ -32,6 +33,14 @@ class PyCallgraphProvider(CallgraphProviderBase):
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self._provider is not None:
             return self._provider.__exit__(exc_type, exc_val, exc_tb)
+
+    def start(self):
+        '''Starts Capturing Trace'''
+        return self._provider.start()
+
+    def stop(self):
+        '''Stop Capture Trace'''
+        return self._provider.stop()
 
     def get_path(self):
         return self._configuration.path

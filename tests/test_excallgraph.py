@@ -6,7 +6,7 @@ from unittest import TestCase
 from excallgraph import generate_call_graph, initialize_callgraph
 from providers import CallgraphConfiguration
 from providers.pycallgraphprovider import get_new_pygraphviz_instance
-from providers.jongaprovider import get_new_jonga_instance
+#from providers.jongaprovider import get_new_jonga_instance
 
 
 def get_execution_path():
@@ -81,15 +81,15 @@ class ExCallGraphTests(TestCase):
 
 
     def test_simple_call_graph_generation(self):
-        result = self._scenarios.test_simple_call_graph_generation()
+        self._scenarios.test_simple_call_graph_generation()
         self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation.png"))
 
 
     def test_simple_call_graph_generation1(self):
-        result = self._scenarios.test_simple_call_graph_generation1()
+        self._scenarios.test_simple_call_graph_generation1()
         self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation1.png"))
 
 
     def test_simple_call_graph_generation2(self):
-        result = self._scenarios.test_simple_call_graph_generation2()
+        self._scenarios.test_simple_call_graph_generation2()
         self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation2.png"))
