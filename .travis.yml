@@ -1,0 +1,24 @@
+language: python
+cache: pip
+python:
+  - "3.6"
+  - "3.6-dev"
+  - "3.7-dev"
+before_install:
+  - sudo apt-get install graphviz libgraphviz-dev -y
+  - export GENERATE_CALL_GRAPHS=True
+  - export SRC_ROOT=$(pwd)
+  - export PYTHONPATH=$PYTHONPATH:$SRC_ROOT
+install:
+  - pip install -r requirements.txt
+  - pip install -e .
+script:
+  - python -m unittest discover -s "$SRC_ROOT/tests" -t "$SRC_ROOT"
+#deploy:
+#  provider: pypi
+#  user: "Your username"
+#  password:
+#    secure: ""
+#  on:
+#    branch: master
+#    tags: true
