@@ -1,4 +1,3 @@
-import os
 import json
 import re
 from unittest import TestCase
@@ -16,7 +15,6 @@ class ExCallGraphTestScenarios(object):
         config.format = "png"
         config.path = get_call_graphs_path()
         config.enabled = True
-        #config.excludes = ['json']
         initialize_callgraph(get_new_pygraphviz_instance, config)
 
 
@@ -47,23 +45,23 @@ class ExCallGraphTestScenarios(object):
         })
 
 
-class ExCallGraphPyCallGraphTests(TestCase):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._scenarios = ExCallGraphTestScenarios()
-
-
-    def test_simple_call_graph_generation_using_pycallgraph(self):
-        self._scenarios.test_simple_call_graph_generation_using_pycallgraph()
-        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation_using_pycallgraph.png"))
-
-
-    def test_simple_call_graph_generation1_using_pycallgraph(self):
-        self._scenarios.test_simple_call_graph_generation1_using_pycallgraph()
-        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation1_using_pycallgraph.png"))
-
-
-    def test_simple_call_graph_generation2_using_pycallgraph(self):
-        self._scenarios.test_simple_call_graph_generation2_using_pycallgraph()
-        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation2_using_pycallgraph.png"))
+# class ExCallGraphPyCallGraphTests(TestCase):
+#
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self._scenarios = ExCallGraphTestScenarios()
+#
+#
+#     def test_simple_call_graph_generation_using_pycallgraph(self):
+#         self._scenarios.test_simple_call_graph_generation_using_pycallgraph()
+#         self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation_using_pycallgraph.png"))
+#
+#
+#     def test_simple_call_graph_generation1_using_pycallgraph(self):
+#         self._scenarios.test_simple_call_graph_generation1_using_pycallgraph()
+#         self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation1_using_pycallgraph.png"))
+#
+#
+#     def test_simple_call_graph_generation2_using_pycallgraph(self):
+#         self._scenarios.test_simple_call_graph_generation2_using_pycallgraph()
+#         self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation2_using_pycallgraph.png"))

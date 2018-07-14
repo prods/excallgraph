@@ -1,4 +1,3 @@
-import os
 import json
 import re
 from unittest import TestCase
@@ -13,10 +12,9 @@ from tests import get_call_graphs_path, check_call_graph_file_exists
 class ExCallGraphTestScenarios(object):
     def __init__(self):
         config = CallgraphConfiguration()
-        config.format = "png"
+        config.format = "svg"
         config.path = get_call_graphs_path()
         config.enabled = True
-        #config.excludes = ['json']
         initialize_callgraph(get_new_jonga_instance, config)
 
     @generate_call_graph
@@ -55,14 +53,14 @@ class ExCallGraphJongaTests(TestCase):
 
     def test_simple_call_graph_generation_using_jonga(self):
         self._scenarios.test_simple_call_graph_generation_using_jonga()
-        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation_using_jonga.png"))
+        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation_using_jonga.svg"))
 
 
     def test_simple_call_graph_generation1_using_jonga(self):
         self._scenarios.test_simple_call_graph_generation1_using_jonga()
-        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation1_using_jonga.png"))
+        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation1_using_jonga.svg"))
 
 
     def test_simple_call_graph_generation2_using_jonga(self):
         self._scenarios.test_simple_call_graph_generation2_using_jonga()
-        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation2_using_jonga.png"))
+        self.assertTrue(check_call_graph_file_exists("test_simple_call_graph_generation2_using_jonga.svg"))

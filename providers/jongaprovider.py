@@ -19,7 +19,6 @@ class JongaProvider(CallgraphProviderBase):
         self._provider = jonga.CallTracer(grpflt=includes_filter)
 
     def __enter__(self):
-        self._provider.start()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -32,6 +31,14 @@ class JongaProvider(CallgraphProviderBase):
 
     def get_format(self):
         return self._configuration.format
+
+    def start(self):
+        '''Starts Capturing Trace'''
+        return self._provider.start()
+
+    def stop(self):
+        '''Stop Capture Trace'''
+        return self._provider.stop()
 
     def create_path_if_not_exists(self):
         try:
