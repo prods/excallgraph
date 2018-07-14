@@ -1,15 +1,15 @@
 import errno
 import os
+import sys
 
 
 class CallgraphConfiguration(object):
     def __init__(self):
         self.format = None
-        self.path = None
+        self.path = os.path.dirname(sys.argv[0])
         self.includes = None
         self.excludes = None
         self.enabled = True
-        self.path_exists = False
 
 
 class CallgraphProviderBase(object):
